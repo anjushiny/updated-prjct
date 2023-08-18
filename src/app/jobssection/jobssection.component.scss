@@ -1,17 +1,27 @@
 .jobs-row {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+
+  display: grid;
+
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+
+  gap: 20px;
+
 }
 
+ 
+
 .job-box {
-  width: 340px;
-  /* Set the desired width for each job box */
-  height: 540px;
-  /* Set the desired height for each job box */
-  border: 1px solid #ccc;
+
+  border: 5px solid #ccc;
+
   padding: 10px;
-  margin: 10px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  background-color: white;
+
 }
 
 .job-box h3 {
@@ -44,12 +54,9 @@ border: 3px solid #000000;
 
 border: 3px solid rgb(128, 126, 125);
 
-margin-right: 20px;
-
+ margin-right: 10px;
+ 
 }
-
-
-
 
 
 
@@ -85,8 +92,6 @@ margin-right: 20px;
     text-align: right;
   }
   
-
- 
   
   .highlighted {
 
@@ -121,8 +126,6 @@ margin-right: 20px;
  }
 
 
-
-
  .search-bar .clear-button {
 
    position: absolute;
@@ -135,8 +138,6 @@ margin-right: 20px;
 
    border: none;
    
- 
-
    background: transparent;
 
    cursor: pointer;
@@ -148,7 +149,6 @@ margin-right: 20px;
    color: #999; /* Adjust the color of the clear button icon */
 
  }
-
 
  .result {
 
@@ -211,30 +211,28 @@ margin-right: 20px;
 }
 
 
-form {
+// form {
 
-  display: flex;
+//   display: flex;
 
-  flex-direction: column;
+//   flex-direction: column;
 
-  align-items: center;
+//   align-items: center;
 
-}
-
-
-input {
-
-  margin-bottom: 10px;
-
-  width: 300px;
-
-  padding: 10px;
-
-  font-size: 16px;
-
-}
+// }
 
 
+// input {
+
+//   margin-bottom: 10px;
+
+//   width: 300px;
+
+//   padding: 10px;
+
+//   font-size: 16px;
+
+// }
 
 button {
 
@@ -280,7 +278,7 @@ button {
 
   transform: translate(-50%, -50%);
 
-  background-color: #f8daa5;
+  background-color: #cce8f0;
 
   padding: 20px;
 
@@ -289,7 +287,6 @@ button {
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
 
 }
-
 
 .popup-overlay.show {
 
@@ -311,7 +308,6 @@ button {
 }
 
 
-
 .popup-content {
   display: flex;
   flex-wrap: wrap;
@@ -325,8 +321,8 @@ button {
 
 .field-group {
   flex: 0 0 calc(33.33% - 20px); /* Three columns with some spacing in between */
-  margin-right: 15px;
-  margin-bottom: 15px;
+   margin-right: 15px;
+  margin-bottom: 10px;
   
   height: 80px; /* Adjust the height as per your preference */
   width: 500px; 
@@ -354,12 +350,9 @@ button {
   margin-top: 10px;
 }
 
-
-
 // button {
 //   margin-right: 8px;
 // }
-
 
 
 .empty-jobs-container {
@@ -372,7 +365,7 @@ button {
 }
 
 .post-jobs-button {
-  margin-top: 370px;
+  margin-top: 250px;
   padding: 10px 10px;
   background-color: #0e0e0e;
   color: white;
@@ -381,7 +374,8 @@ button {
   font-size: 25px;
   cursor: pointer;
   // margin: 20px;
-  margin-bottom: 80px;
+  margin-bottom: 100px;
+  margin-left: 70px;
 }
 
 
@@ -411,21 +405,11 @@ body{
   align-items: center;
   min-height: 50vh;
   margin: 0;
-   //background-color: #eca1a6; /* Set the background color for the entire page */
-  // background-image: url("https://cdn.pixabay.com/photo/2015/11/03/09/01/business-card-1019948_640.jpg");
-  // background-size: cover;
-  // // background-attachment: fixed;
 
-  // background-repeat: no-repeat;
-  // padding: 20px;
- 
-//  background-size: 1000px;
-//  background-position-x: center;
 
   
 }
 .form-control {
-  text-indent: 25px; /* Adjust the value as needed to move the placeholder */
   border-block: 1px;
 }
 .empty-jobs-container {
@@ -435,6 +419,8 @@ body{
   padding: 2px;
   background-size: 800px;
   background-position-x: center;
+  margin-top: -20px;
+  margin-bottom: -50px;
   
 }
 position-relative{
@@ -446,9 +432,15 @@ position-relative{
 }
 
 .buttons{
-  background-color: rgb(75, 75, 184);
+  background-color: rgb(100, 178, 197);
   color: white;
   border-radius: 4px;
   
   font-size: 20px;
 }
+
+.searchText{
+text-indent: 25px; /* Adjust the value as needed to move the placeholder */
+border-block: 1px;
+}
+

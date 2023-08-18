@@ -7,14 +7,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   
+  
 </head>
 
 <body>
 
   <div class="empty-jobs-container" *ngIf="jobsList.length === 0">
     <h1>NO JOBS POSTED</h1>
-    <button routerLink="/dashboard/jobs" class="post-jobs-button">Click here to post</button>
-    <div class="flowing-image"></div>
+    <button routerLink="/dashboard/jobs" class="post-jobs-button">Click to post</button>
+    <!-- <div class="flowing-image"></div> -->
   </div>
 
 
@@ -23,7 +24,7 @@
 
       <div class="row">
         <div class="position-relative"  style="margin-top: 25px;" >
-          <input class="form-control border" type="text" name="search" [(ngModel)]="searchText"
+          <input class="searchText border" type="text" name="search" [(ngModel)]="searchText"
                 placeholder="Type here to search Jobs"
             (keydown.enter)="onEnterPressed($event)">
           <span class="search-icon" (click)="search()"><i class="fa fa-search" aria-hidden="true"></i></span>
@@ -83,8 +84,8 @@
             <span *ngIf="!searchText || !item.jobType">{{ item.jobType }}</span>
         </p>
           <p><span style="color: rgb(8, 8, 8); font-weight: 600;">Qualification: </span>{{ item.qualification }}</p>
-          <p><span style="color: rgb(8, 8, 8); font-weight: 600;">PostedDate: </span>{{ item.postedDate }}</p>
-          <p><span style="color: rgb(8, 8, 8); font-weight: 600;">EndDate: </span>{{ item.endDate }}</p>
+          <p><span style="color: rgb(8, 8, 8); font-weight: 600;">PostedDate: </span>{{ item.postedDate |date }}</p>
+          <p><span style="color: rgb(8, 8, 8); font-weight: 600;">EndDate: </span>{{ item.endDate |date }}</p>
       
          <p>
             <span style="color: rgb(8, 8, 8); font-weight: 600;">Location: </span>
@@ -114,7 +115,7 @@
 
             </button>
 
-     <button type="button" class="btn btn-light mr-1" (click)="delete(item.jobId)">
+         <button type="button" class="btn btn-light mr-1" (click)="delete(item.jobId)">
 
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#dc3545" class="bi bi-trash"
                 viewBox="0 0 16 16">
@@ -133,27 +134,11 @@
         </div>
       </div>
   
-      <!-- <nav aria-label="Page navigation example">
-        <ul class="pagination justify-content-end">
-          <li class="page-item" [ngClass]="{ 'disabled': currentPage === 1 }">
-            <a class="page-link" tabindex="-1" (click)="previousPage()">Previous</a>
-          </li>
-
-          <li class="page-item" [ngClass]="{ 'disabled': currentPage === totalPages }">
-            <a class="page-link" (click)="nextPage()">Next</a>
-          </li>
-
-        </ul>
-
-      </nav>
-      <h5 class="justify-content-end">Page: {{ currentPage }} of {{ totalPages }}</h5>
-    </div>
-  </div>
- -->
+   
 
 
  <nav aria-label="Page navigation example">
-  <ul class="pagination justify-content-center">
+  <ul class="pagination justify-content-center" style="margin-top: 25px;">
     <li class="page-item" [ngClass]="{ 'disabled': currentPage === 1 }">
       <button class="page-link buttons" tabindex="-1" (click)="previousPage()">Previous</button>
     </li>
@@ -173,9 +158,9 @@
 
   <div id="popup-form" class="popup-overlay" [ngClass]="{ 'show': showEditFormFlag }">
     <div id="popup-form" class="popup-overlay" [ngClass]="{ 'show': showEditFormFlag }">
-      <div class="popup-content">
+      <div class="popup-content ">
         <form (ngSubmit)="onSubmit()" class="form">
-          <div class="form-fields">
+          <div class="form-fields ">
             <div class="field-group">
               <label for="companyName">COMPANY NAME</label>
               <input type="text" [(ngModel)]="selectedJob.companyName" id="companyName" name="companyName" class="form-control feilds" required>

@@ -1,5 +1,5 @@
 .buttons{
-    background-color: rgb(75, 75, 184);
+    background-color: rgb(100, 178, 197);
     color: white;
     border-radius: 4px;
     
@@ -8,16 +8,29 @@
 
 
 .jobs-row {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-  }
-  .job-box {
-  width: 280px; /* Set the desired width for each job box */
-  height: 400px; /* Set the desired height for each job box */
-  border: 1px solid #ccc;
+
+  display: grid;
+
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+
+  gap: 20px;
+
+}
+
+ 
+
+.job-box {
+
+  border: 5px solid #ccc;
+
   padding: 10px;
-  margin: 10px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  background-color: white;
+
 }
   .job-box h3 {
     margin-top: 0;
@@ -32,3 +45,62 @@
     cursor: pointer;
     text-decoration: underline;
   }
+
+
+  // .empty-jobs-container {
+  //   display: flex;
+  //   justify-content: center;
+  //   align-items: center;
+  //   height: 100vh;
+  // }
+  
+
+
+  body {
+    position: relative;
+    margin: 0; /* Reset default margin */
+    padding: 0; /* Reset default padding */
+    font-family: Arial, sans-serif; /* Use your preferred font-family */
+  }
+  
+  .content {
+    font-size: 45px;
+    font-weight: bold;
+    text-align: center;
+    padding: 50px;
+    margin-bottom: 500px; /* Remove default margin */
+  }
+    
+  .apply {
+    background-color: #0d0e0e;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px;
+    position: absolute;
+    bottom: 70px;
+    left: 51%;
+    transform: translateX(-50%);
+    cursor: pointer;
+  }
+  
+
+  .apply:hover {
+    background-color: #012904;
+  }
+  
+  .empty-jobs-container {
+    background-image: url("https://cdn.pixabay.com/photo/2015/11/03/09/01/business-card-1019948_640.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 260px;
+    background-size: 800px;
+    background-position-x: center;
+    margin-top: -20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+
+  }
+  

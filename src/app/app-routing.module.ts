@@ -15,6 +15,8 @@ import { AppDashboardComponent } from './components/app-dashboard/app-dashboard.
 import { AppHomeComponent } from './components/app-home/app-home.component';
 import { ClientHomeComponent } from './components/client-home/client-home.component';
 import { CandidatessectionComponent } from './components/candidatessection/candidatessection.component';
+//import { AllAppComponent } from './all-app/all-app.component';
+
 
 
 
@@ -43,7 +45,8 @@ const routes: Routes = [
     { path: 'jobs', component: JobsComponent },
     { path: '', redirectTo: 'client-home', pathMatch: 'full' },
     { path: 'client-home', component: ClientHomeComponent },
-    {path:'candidate', component:CandidatessectionComponent}
+    {path:'candidate', component:CandidatessectionComponent},
+   
   ]
 }
   

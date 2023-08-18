@@ -1,45 +1,45 @@
-
-
-
-   <nav class="navbar navbar-expand-lg navbar-light  sticky-top"  style="background-color: #5b3953;">
-    <a class="navbar-brand" style="color: white; font-size: 28px;">Online jobs portal</a>
-   
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link" style="color: aquamarine; font-size: 28px;" routerLink="app-home">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="jobspage" style="color: aquamarine; font-size: 28px;">Jobs section</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="app-applied" style="color: aquamarine; font-size: 28px;">Applied Jobs</a>
-        </li>
-</ul>
-
-</div>
-<ul class="nav justify-content-end">
-<h2 style="color: white;">Hello {{fullName}}</h2>
-<li class="nav-item">
-  <a  class="nav-link px-3 cursor-pointer sign-button" (click)="logout()">Sign out</a>
- </li>
-</ul>
-
-  </nav> 
-
-
+<body>
+<nav class="navbar navbar-expand-lg navbar-light  sticky-top"  style="background-color: #3911eb;">
+  <!-- <a class="navbar-brand" style="color: white; font-size: 20px;">Online jobs portal</a> -->
+  <a class="navbar-brand" style="color: white; font-size: 20px;">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXLZM8y7stLF76RxI2Q3_VrAYGVEAS8Gz2Xg&usqp=CAU" alt="Online jobs portal" style="height: 59px; width: 59px; border-radius: 50%; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
+  </a>
   
+  
+ 
+   <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" style="color: white; font-size: 24px;" routerLink="app-home">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="jobspage"  style="color: white; font-size: 24px;">Jobs section</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="app-applied" style="color: white; font-size: 24px;">Applied Jobs</a>
+      </li>
 
+</ul>
+
+</div> 
+
+
+<ul class="nav justify-content-end">
+<h3 style="color: white;">Hello {{fullName}}!</h3>
+<li class="nav-item">
+<a  class="nav-link px-3 cursor-pointer sign-button" (click)="logout()">Sign out</a>
+</li>
+</ul>
+</nav>
+<!-- 
+<div class="content"> -->
 
   <router-outlet></router-outlet>
-
-
-
-
-
+  
+  <!-- </div> -->
 
 <!-- Footer -->
-<footer class="text-center text-lg-start bg-dark text-muted">
+<footer class="text-center text-lg-start  text-muted" style="background-color: rgb(2, 14, 67);">
   <!-- Section: Social media -->
   <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
    
@@ -87,7 +87,7 @@
             <a  class="text-reset">Career gudience</a>
           </p>
           <p>
-            <a  class="text-reset">Resume Buliding</a>
+            <a  class="text-reset">Resume Building</a>
           </p>
           
         </div>
@@ -115,3 +115,4 @@
  
 </footer>
 <!-- Footer -->
+</body>

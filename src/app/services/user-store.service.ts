@@ -8,9 +8,16 @@ export class UserStoreService {
   [x: string]: any;
 private fullName$ = new BehaviorSubject<string>("");
 private role$ = new BehaviorSubject<string>("");
+private firstName$ = new BehaviorSubject<string>("");
 
 constructor() { }
 
+public getFirstNameFromStore(){
+  return this.firstName$.asObservable();
+}
+public setFirstNameStore(role:string){
+  this.firstName$.next(role);
+}
   public getRoleFromStore(){
     return this.role$.asObservable();
   }

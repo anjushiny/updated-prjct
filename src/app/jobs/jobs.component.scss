@@ -1,5 +1,5 @@
 .text-danger{
-  font-size: 20px;
+  font-size: 17px;
 }
 
 
@@ -28,11 +28,12 @@ input[type="text"],
 input[type="date"],
 input[type="number"],
 textarea {
- width: 100%;
- padding: 0%;
- border-radius: 10px;
+ width: 90%;
+ padding: 5px;
+ height: 45px;
+ border-radius: 15px;
  border: 1px solid #ccc;
-  font-size: 25px;
+font-size: 17px;
 }
 
 input[type="text"]:focus,
@@ -48,7 +49,7 @@ textarea:focus {
 }
 
 button[type="submit"] {
- background-color: rgb(0, 191, 255);
+ background-color: rgb(45, 12, 209);
  color: rgb(249, 247, 248);
  // font-weight: 500;
  border: none;
@@ -61,34 +62,28 @@ button[type="submit"] {
 
 .heading{
  font-weight: 500;
- font-size: 24px;
+ font-size: 20px;
  
 }
 .fields{
-padding: 150px;
+padding: 120px;
 
 }
 
 .head{
 text-align: center;
-padding: 25px;
-font-size: 50px;
+padding: 20px;
+font-size: 30px;
 
 }
-
 
 
 body {
 
-
- background-color: #ebf6fb;
+ background-color: #afc6d1;
  
- background: -webkit-linear-gradient(to right, #cbe1e4, #e0dac1, #e4c3df);  
- background: linear-gradient(to right, #e7d0dc, #cbe3e2, #e6cbcb); 
 
- background: linear-gradient(to bottom, #c4dae2 0%, #e4c7d4 100%)
 }
-
 
 
 

@@ -1,17 +1,11 @@
-import { Component, Input,  OnInit,} from '@angular/core';
+import { Component, Input,  OnInit, ViewChild, ElementRef} from '@angular/core';
 import { library } from '@fortawesome/fontawesome-svg-core';
-import {
-  faBriefcase,
-  faUsers,
-  faTimes,
-  faCheck,
-  fas,
-} from '@fortawesome/free-solid-svg-icons';
+
 import { JobsdetailsService } from 'src/app/jobsdetails.service';
 import { JobscountService } from 'src/app/services/jobscount.service';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { FaIconLibrary, FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+
 import { UserStoreService } from 'src/app/services/user-store.service';
 import { AuthService } from 'src/app/services/auth.service';
 
@@ -19,8 +13,10 @@ import { AuthService } from 'src/app/services/auth.service';
 
 
 
+
 @Component({
   selector: 'app-jobsdata',
+  
   templateUrl: './jobsdata.component.html',
   styleUrls: ['./jobsdata.component.scss']
 })
@@ -30,10 +26,8 @@ export class JobsdataComponent implements OnInit {
   @Input() totalAppliedJobsCount!: number;
   @Input() notAppliedJobsCount!: number;
   
-  faBriefcase = faBriefcase;
-  faUsers = faUsers;
-  faCheck = faCheck;
-  faTimes = faTimes;
+
+
  
   // jobCount$: Observable<number> = this.jobsCountService.jobCount$;
   // jobCount!: number;
@@ -44,13 +38,15 @@ export class JobsdataComponent implements OnInit {
   // notAppliedJobsCount!: number ;
 
 username: string ='';
-  constructor( private jobsint:JobsdetailsService,private auth:AuthService ,private jobsCountService: JobscountService,library: FaIconLibrary, private userStore: UserStoreService) {
+@ViewChild('pieCanvas') pieCanvas!: ElementRef;
+
+  constructor( private jobsint:JobsdetailsService,private auth:AuthService ,private jobsCountService: JobscountService, private userStore: UserStoreService) {
    
    }
 
   ngOnInit(): void {
 
-
+   
     this.userStore.getFullNameFromStore()
         .subscribe(val=>{
           const fullNameFromToken = this.auth.getfullNameFromToken();
@@ -103,4 +99,8 @@ username: string ='';
     );
   }
 
+
+
 }
+
+

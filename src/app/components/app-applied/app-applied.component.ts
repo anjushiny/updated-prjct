@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
+
 import { AppStoreService } from 'src/app/app-store.service';
 
 import { JobsdetailsService } from 'src/app/jobsdetails.service';
 import { AuthService } from 'src/app/services/auth.service';
 import { AuthnService } from 'src/app/services/authn.service';
 import { UserStoreService } from 'src/app/services/user-store.service';
+
 interface ResumeViewModel {
   resumeId:number;
   applicantName: string;
@@ -26,6 +28,9 @@ interface ResumeViewModel {
   experience: string;
   skills: string;
   jobType: string;
+  qualification:string;
+  endDate:number;
+  positions:number;
   postedDate: string;
   location: string;
   jobDescription: string;
@@ -62,11 +67,15 @@ appliedUsername:string='';
       if (this.appliedUsername) {
         this.jobsint.getAppliedJobsByUser(this.appliedUsername).subscribe((data: any) => {
           console.log('Applied Username:', this.appliedUsername);
+          // this.toast.success({detail:"Applied successfully", duration: 3000});
 
           this.appliedJobs = data;
           this.totalPages = Math.ceil(this.appliedJobs.length / this.itemsPerPage);
           this.generatePageNumbers();
           this.updateDisplayedAppliedJobs();
+        //   setTimeout(() => {
+        //     window.location.reload();
+        //   }, 2000);
         });
       }
     });

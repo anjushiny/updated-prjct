@@ -8,6 +8,7 @@ import { CommonModule } from '@angular/common';
 import { Job } from '../models/job';
 import { HighlightPipePipe } from '../highlight-pipe.pipe';
 import { FilterPipe } from '../filter.pipe';
+
 interface HighlightedText {
   text: string;
   highlight: boolean;
@@ -20,6 +21,7 @@ interface HighlightedText {
   styleUrls: ['./jobssection.component.scss']
 })
 export class JobssectionComponent implements OnInit {
+
 
   jobsList: any[] = [];
   itemsPerPage: number = 12;
@@ -39,17 +41,18 @@ export class JobssectionComponent implements OnInit {
   showEditFormFlag = false;
   hasResults: boolean = true;
 
-
- 
   userId: number | undefined;
   username: string = '';
+  
   constructor( private toast: NgToastService,private jobsint:JobsdetailsService , private location: Location, private auth:AuthService, private userStore: UserStoreService) { 
     this.totalPages = Math.ceil(this.jobsList.length / this.itemsPerPage);
     this.generatePageNumbers();
     this.searchQuery = '';
     this.searchResults = [];
     this.filteredJobs = this.jobs;
+    
   }
+  
   updateDisplayedJobs() {
     const startIndex = (this.currentPage - 1) * this.itemsPerPage;
     const endIndex = startIndex + this.itemsPerPage;
@@ -102,6 +105,8 @@ export class JobssectionComponent implements OnInit {
       this.jobsint.getJobsByUser(this.username).subscribe(data => {
         this.jobsList = data;
         this.totalPages = Math.ceil(this.jobsList.length / this.itemsPerPage);
+        this.currentPage = 1;
+   
         this.generatePageNumbers();
         this.updateDisplayedJobs();
       });
@@ -109,9 +114,7 @@ export class JobssectionComponent implements OnInit {
 
   }
   
-  // onSubmit(){
-  //   console.log(this.selectedJob)
-  // }
+
   showEditForm(job: any) {
     this.selectedJob = { ...job }; // Create a copy of the selected job to avoid modifying the original data directly
     this.showEditFormFlag = true;
@@ -127,28 +130,52 @@ export class JobssectionComponent implements OnInit {
   }
 
 
+  onSubmit() {
 
+    this.jobsint.editmethod(this.selectedJob.jobId, this.selectedJob).subscribe(
 
-onSubmit() {
-  this.jobsint.editmethod(this.selectedJob.jobId, this.selectedJob).subscribe(
-    (response) => {
+      (response) => {
 
-      this.toast.success({detail:"updated successfully", duration: 3000});
-      console.log('Job updated successfully:', response);
+        this.toast.success({ detail: "Updated successfully", duration: 3000 });
 
-      this.hideEditForm(); // Hide the edit form after successful update
-      setTimeout(() => {
-        window.location.reload();
-      }, 2000);
-    }
-  );
-}
+        console.log('Job updated successfully:', response);
+
+ 
+        // Update the job in the jobsList array
+
+        const index = this.jobsList.findIndex(job => job.jobId === this.selectedJob.jobId);
+
+        if (index !== -1) {
+
+          this.jobsList[index] = this.selectedJob;
+
+          this.updateDisplayedJobs();
+
+        }
+
+ 
+        this.hideEditForm(); // Hide the edit form after successful update
+
+      },
+
+      (error) => {
+
+        console.error('Error updating job:', error);
+
+        this.toast.error({ detail: "Failed to update job", duration: 3000 });
+
+      }
+
+    );
+
+  }
 
 delete(jobId:number){
  
   this.jobsint.deletemethod(jobId).subscribe(
     (response) =>{
-     
+      console
+    // alert("deleted successfully")
       this.toast.success({detail:"Deleted successfully", duration: 3000});
       console.log("deleted", response)
       setTimeout(() => {
@@ -157,8 +184,6 @@ delete(jobId:number){
     }
   )
 }
-
-
 
 
 search() {
@@ -228,24 +253,10 @@ highlightText(text: string): HighlightedText[] {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
+
+
+
 
 
 

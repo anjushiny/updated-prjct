@@ -1,5 +1,5 @@
 .buttons{
-    background-color: rgb(75, 75, 184);
+  background-color: rgb(100, 178, 197);
     color: white;
     border-radius: 4px;
     
@@ -8,18 +8,30 @@
 
 
 .jobs-row {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-  }
-  .job-box {
-  width: 320px; /* Set the desired width for each job box */
-  height: 530px; /* Set the desired height for each job box */
-  border: 5px solid #ccc;
-  padding: 10px;
-  margin: 10px;
+
+  display: grid;
+
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+
+  gap: 20px;
+
 }
 
+ 
+
+.job-box {
+
+  border: 5px solid #ccc;
+
+  padding: 10px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  background-color: white;
+
+}
 
 .border
 

@@ -10,23 +10,35 @@
   
 </head>
 
-<body>
- 
+<!-- <body> -->
 
   <div class="body">
+    <div class="empty-jobs-container" *ngIf="displayedAppliedJobs.length === 0">
+      <h4 class="content">No Jobs Are Applied</h4>
+      <button routerLink="/app-dashboard/jobspage" class="apply">Click To Apply</button>
+      <div class="flowing-image"></div>
+    </div>
+  
+  
+    <div *ngIf="displayedAppliedJobs.length > 0">
     <div class="container">
 <div class="jobs-row">
       <div class="job-box" *ngFor="let item of displayedAppliedJobs" (click)="viewJobDetails(item.jobId)" >
       
         <!-- <h1>{{item.jobId}}</h1> -->
         <h3>{{ item.jobTitle }}</h3>
-        <p><span style="color: rgb(8, 8, 8); font-weight: 600;">Company: </span> {{ item.companyName }}</p>
-        <p><span style="color: rgb(8, 8, 8); font-weight: 600;">Experience: </span> {{ item.experience }}</p>
+        <p><span style="color: rgb(8, 8, 8); font-weight: 600;">Job Title: </span>{{ item.jobTitle }}</p>
+        <p><span style="color: rgb(8, 8, 8); font-weight: 600;">companyName: </span>{{ item.companyName }}</p>
+        <p><span style="color: rgb(8, 8, 8); font-weight: 600;">Experience: </span>{{ item.experience }}</p>
         <p><span style="color: rgb(8, 8, 8); font-weight: 600;">Skills: </span>{{ item.skills }}</p>
         <p><span style="color: rgb(8, 8, 8); font-weight: 600;">Job Type: </span>{{ item.jobType }}</p>
         <p><span style="color: rgb(8, 8, 8); font-weight: 600;">Location: </span>{{ item.location }}</p>
-        <p><span style="color: rgb(8, 8, 8); font-weight: 600;">Job Description: </span> {{ item.jobDescription }}</p>
-        <button>click to view job status</button>
+        <p><span style="color: rgb(8, 8, 8); font-weight: 600;">Qualification: </span>{{ item.qualification }}</p>
+        <p><span style="color: rgb(8, 8, 8); font-weight: 600;">Positions: </span>{{ item.positions }}</p>
+        <p><span style="color: rgb(8, 8, 8); font-weight: 600;">PostedDate: </span>{{ item.postedDate }}</p>
+        <p><span style="color: rgb(8, 8, 8); font-weight: 600;">EndDate: </span>{{ item.endDate }}</p>
+        <p><span style="color: rgb(8, 8, 8); font-weight: 600;">Job Description: </span>{{ item.jobDescription}}</p>
+        <button style ="background-color: rgb(54, 193, 200);">click to view job status</button>
         <p *ngIf="showStatusMessage">Status: Waiting</p>
          <p *ngIf="item.rejectionReason ">Rejection Reason: {{ item.rejectionReason }}</p>
         <p *ngIf="item.scheduleMeetingDate ">Schedule Meeting Date: {{ item.scheduleMeetingDate   }}</p>
@@ -35,7 +47,7 @@
     </div>
     
     <nav aria-label="Page navigation example">
-      <ul class="pagination justify-content-center">
+      <ul class="pagination justify-content-center" style="margin-top:25 ;">
         <li class="page-item" [ngClass]="{ 'disabled': currentPage === 1 }">
           <button class="page-link buttons" tabindex="-1" (click)="previousPage()">Previous</button>
         </li>
@@ -49,9 +61,9 @@
   </div>
 </div>
 
-</body>
+<!-- </body>  -->
 
-</html>
+ <!-- </html>  -->
 
 
 
